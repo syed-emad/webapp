@@ -10,7 +10,6 @@ export class HeaderM extends Component {
               <div class="logo_container">
                 <div class="logo">
                   <img src="images/logo.png" alt="" />
-                  <span>course</span>
                 </div>
               </div>
 
