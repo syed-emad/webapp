@@ -17,7 +17,7 @@ export class HeaderM extends Component {
               <div class="main_nav">
                 <ul class="main_nav_list">
                   <li class="main_nav_item">
-                    <a href="#">about us</a>
+                    <a href="#">About Us</a>
                   </li>
                   <li class="main_nav_item">
                     <a href="#">Find Tutor</a>
@@ -27,7 +27,7 @@ export class HeaderM extends Component {
                   </li>
 
                   <li class="main_nav_item">
-                    <a href="contact.html">contact</a>
+                    <a href="contact.html">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -35,7 +35,7 @@ export class HeaderM extends Component {
           </div>
           <div class="header_side d-flex flex-row justify-content-center align-items-center">
             <img src="images/phone-call.svg" alt="" />
-            <span>+43 4566 7788 2457</span>
+            <span>Sign Up!</span>
           </div>
 
           <div class="hamburger_container">
@@ -60,10 +60,10 @@ export class HeaderM extends Component {
                   <a href="#">Courses</a>
                 </li>
                 <li class="menu_item menu_mm">
-                  <a href="elements.html">Elements</a>
+                  <a href="elements.html">Find Tutor</a>
                 </li>
                 <li class="menu_item menu_mm">
-                  <a href="news.html">News</a>
+                  <a href="news.html">Become Tutor</a>
                 </li>
                 <li class="menu_item menu_mm">
                   <a href="contact.html">Contact</a>
@@ -101,7 +101,7 @@ export class HeaderM extends Component {
               </div>
 
               <div class="menu_copyright menu_mm">
-                Colorlib All rights reserved
+               
               </div>
             </div>
           </div>
