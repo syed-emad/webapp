@@ -18,6 +18,9 @@ export class App extends Component {
           <Route exact path="/" component={HeaderM}></Route>
           <Route exact path="/" component={SlideM}></Route>
           <Route exact path="/" component={FooterX}></Route>
+          <Route exact path="/" component={FooterX}></Route>
+          <Route exact path="/" component={FooterX}></Route>
+          <Route exact path="/" component={FooterX}></Route>
           <Route exact path="/Popular.js" component={Popular}></Route>
         </div>
       </div>
