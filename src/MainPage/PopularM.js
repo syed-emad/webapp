@@ -8,7 +8,7 @@ export class PopularM extends Component {
             <div class="row">
               <div class="col">
                 <div class="section_title text-center">
-                  <h1>Popular Courses</h1>
+                  <h1>Popular Classes</h1>
                 </div>
               </div>
             </div>
@@ -23,24 +23,21 @@ export class PopularM extends Component {
                   />
                   <div class="card-body text-center">
                     <div class="card-title">
-                      <a href="courses.html">A complete guide to design</a>
+                      <a href="courses.html">English</a>
                     </div>
                     <div class="card-text">
-                      Adobe Guide, Layes, Smart Objects etc...
+                      <br></br>
+                      Cant solve a questions? Select from number of teachers
+                      availbale to help you out in your olevels subject.
                     </div>
                   </div>
                   <div class="price_box d-flex flex-row align-items-center">
-                    <div class="course_author_image">
-                      <img
-                        src="images/author.jpg"
-                        alt="https://unsplash.com/@mehdizadeh"
-                      />
-                    </div>
-                    <div class="course_author_name">
-                      Michael Smith, <span>Author</span>
-                    </div>
+                    {" "}
+                    <div class="course_author_name">Get to know more</div>
                     <div class="course_price d-flex flex-column align-items-center justify-content-center">
-                      <span>$29</span>
+                      <span>
+                        <a> -></a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -55,7 +52,7 @@ export class PopularM extends Component {
                   />
                   <div class="card-body text-center">
                     <div class="card-title">
-                      <a href="courses.html">Beginners guide to HTML</a>
+                      <a href="courses.html">Physics</a>
                     </div>
                     <div class="card-text">
                       Adobe Guide, Layes, Smart Objects etc...
@@ -87,7 +84,7 @@ export class PopularM extends Component {
                   />
                   <div class="card-body text-center">
                     <div class="card-title">
-                      <a href="courses.html">Advanced Photoshop</a>
+                      <a href="courses.html">Mathematics</a>
                     </div>
                     <div class="card-text">
                       Adobe Guide, Layes, Smart Objects etc...

@@ -48,8 +48,8 @@ export class FooterX extends Component {
                 <div class="col-lg-3 footer_col">
                   <div class="logo_container">
                     <div class="logo">
-                      <img src="images/logo.png" alt="" />
-                      <span>course</span>
+                      <img src="images/bulb3.png" alt="" />
+                      <span>Professor</span>
                     </div>
                   </div>
 
@@ -93,12 +93,7 @@ export class FooterX extends Component {
                       <li class="footer_list_item">
                         <a href="#">FAQ</a>
                       </li>
-                      <li class="footer_list_item">
-                        <a href="#">Community</a>
-                      </li>
-                      <li class="footer_list_item">
-                        <a href="#">Campus Pictures</a>
-                      </li>
+
                       <li class="footer_list_item">
                         <a href="#">Tuitions</a>
                       </li>
@@ -148,7 +143,7 @@ export class FooterX extends Component {
                 <span>
                   Copyright &copy;
                   <script>document.write(new Date().getFullYear());</script> All
-                  rights reserved | This template is made with{" "}
+                  rights reserved | This is made with{" "}
                   <i class="fa fa-heart" aria-hidden="true"></i> by{" "}
                   <a href="https://colorlib.com" target="_blank">
                     Colorlib

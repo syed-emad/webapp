@@ -26,7 +26,7 @@ export class Popular extends Component {
                   />
                   <div class="card-body text-center">
                     <div class="card-title">
-                      <a href="courses.html">A complete guide to design</a>
+                      <a href="courses.html">Mathematics Olevels </a>
                     </div>
                     <div class="card-text">
                       Adobe Guide, Layes, Smart Objects etc...
