@@ -27,8 +27,7 @@ export class PopularM extends Component {
                     </div>
                     <div class="card-text">
                       <br></br>
-                      Cant solve a questions? Select from number of teachers
-                      availbale to help you out in your olevels subject.
+                      Develop fluent english speaking and writing skills
                     </div>
                   </div>
                   <div class="price_box d-flex flex-row align-items-center">
