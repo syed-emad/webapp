@@ -140,15 +140,7 @@ export class FooterX extends Component {
 
             <div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
               <div class="footer_copyright">
-                <span>
-                  Copyright &copy;
-                  <script>document.write(new Date().getFullYear());</script> All
-                  rights reserved | This is made with{" "}
-                  <i class="fa fa-heart" aria-hidden="true"></i> by{" "}
-                  <a href="https://colorlib.com" target="_blank">
-                    Colorlib
-                  </a>
-                </span>
+                <span></span>
               </div>
               <div class="footer_social ml-sm-auto">
                 <ul class="menu_social">

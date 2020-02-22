@@ -16,7 +16,7 @@ export class App extends Component {
       <div>
         <div class="super_container">
           <Route exact path="/" component={HeaderM}></Route>
-
+          <Route exact path="/" component={SlideM}></Route>
           <Route exact path="/" component={PopularM}></Route>
           <Route exact path="/" component={Testimonials}></Route>
           <Route exact path="/" component={FooterX}></Route>
