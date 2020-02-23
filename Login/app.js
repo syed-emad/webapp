@@ -1,6 +1,9 @@
+//imporitngimporting express
 const express = require("express");
+//importing ejs
 const expressLayouts = require("express-ejs-layouts");
-
+//importing moongooes
+const moongoes = require("mongoose");
 const app = express();
 
 //ejs
