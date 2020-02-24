@@ -58,7 +58,7 @@ COLOR PALETTE
 }
 
 body {
-	font-family: 'Georgia', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	background: #FFFFFF;
@@ -79,7 +79,7 @@ ul {
 }
 
 p {
-	font-family: 'Georgia', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	line-height: 2.29;
 	font-weight: 400;
@@ -162,7 +162,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Georgia', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
@@ -392,7 +392,7 @@ section {
 }
 
 .main_nav_item a {
-	font-family: 'Georgia', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: 700;
