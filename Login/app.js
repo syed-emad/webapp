@@ -21,6 +21,7 @@ app.set("view engine", "ejs");
 
 //bodyparser
 app.use(express.urlencoded({ extended: false }));
+
 //routes
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));

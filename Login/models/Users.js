@@ -1,6 +1,6 @@
-const moongoes = require("mongoose");
+const mongooes = require("mongoose");
 
-const userschema = new moongoes.Schema({
+const UserSchema = new moongoes.Schema({
   name: {
     type: String,
     required: true
@@ -19,6 +19,6 @@ const userschema = new moongoes.Schema({
   }
 });
 
-const User = moongoes.model("user", userschema);
+const User = moongoes.model("User", UserSchema);
 
 module.exports = User;
