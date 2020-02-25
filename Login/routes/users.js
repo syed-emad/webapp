@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const bcrypt = require("bcryptjs");
 //Login page
 router.get("/login", (req, res) => res.render("login"));
 
@@ -35,7 +35,28 @@ router.post("/register", (req, res) => {
       password2
     });
   } else {
-    res.send("pass");
+    //res.send("pass");
+    User.findOne({ email: email }).then(user => {
+      if (user) {
+        //user exsists
+        errors.push({ msg: "chal ja bhai" });
+        res.render("register", {
+          errors,
+          name,
+          email,
+          password,
+          password2
+        });
+      } else {
+        const newUser = new User({
+          name,
+          email,
+          password
+        });
+        console.log(newUser);
+        res.send("hel");
+      }
+    });
   }
 });
 
