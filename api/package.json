@@ -1,0 +1,19 @@
+{
+  "name": "webtut",
+  "version": "1.2.4",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"  
+  },
+  "keywords": [],
+  "author": "saif",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "description": ""
+}
