@@ -2,13 +2,28 @@
 
 const express = require('express'); //imporitng express
 const morgan = require('morgan');  //importing morgan which is a logging pckg, shows log on terminal
+const bodyParser= require('body-parser'); //parses body of incoming requests(does not support files) nd makes them readable
 
 const app = express();
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
 
+//app.use sets up a middlewre,everything psses thru it
 app.use(morgan('dev'));
-   //sets up a middlewre,everything psses thru it
+app.use(bodyParser.urlencoded({ extended:false}));
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+       res.header('Access-Control-Allow-Origin', '*');  //* means allow aaccessto all to avoid cors error
+       res.header('Access-Control-Allow-Headers', '*');
+       if(req.method=='OPTIONS'){
+           res.header('Access-Control-Allow-Methods','PUT,GET,POST,DELETE,PATCH');
+           return res.status(200).json({});
+       }
+       next();
+    }
+
+);
+
 app.use('/products', productRoutes);    //goes to page products
 app.use('/orders',orderRoutes); 
 
