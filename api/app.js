@@ -3,10 +3,17 @@
 const express = require('express'); //imporitng express
 const morgan = require('morgan');  //importing morgan which is a logging pckg, shows log on terminal
 const bodyParser= require('body-parser'); //parses body of incoming requests(does not support files) nd makes them readable
-
+const mongoose = require('mongoose');  //mongo db pckge
 const app = express();
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
+
+mongoose.connect('mongodb+srv://node-api:'+ process.env.MONGO_ATLAS_PW +'@cluster0-qzcg0.mongodb.net/test?retryWrites=true&w=majority' ,
+      {
+        useMongoClient:true
+      }  
+
+);
 
 //app.use sets up a middlewre,everything psses thru it
 app.use(morgan('dev'));
