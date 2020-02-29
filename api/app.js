@@ -9,9 +9,9 @@ const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
 
 mongoose.connect('mongodb+srv://node-api:'+ process.env.MONGO_ATLAS_PW +'@cluster0-qzcg0.mongodb.net/test?retryWrites=true&w=majority' ,
-      {
-        useMongoClient:true
-      }  
+{   useNewUrlParser: true,
+    useUnifiedTopology: true 
+}
 
 );
 
