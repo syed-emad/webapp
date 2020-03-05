@@ -12,25 +12,24 @@ router.get('/', (req, res, next) => {
       //to get incoming requests, first param is url
       router.get('/:prodID', (req, res, next) => {
         const id= req.params.prodID;
-        if (id==='special'){
-            res.status(200).json ({
-                message: 'specil id',
-                id : id
-            });
-        } else {
-                res.status(200).json ({
-                    message: 'norml id',
-                    id: id
-                }); 
-            }
-        
+        Product.findById(id)
+        .exec()
+        .then(doc => {
+            console.log(doc);
+            res.status(200).json(doc);
+        })
+        .catch(err =>{
+            console.log(err);
+            res.statusS(500).json({error: err});
+
+        } );
         
     });  
         
       router.post('/', (req, res, next) => {
           
-          const product= new Product({
-              _id: new mongoose.Types.ObjectId(),
+          const product= new Product({                        //constructor for product with javascript object
+              _id: new mongoose.Types.ObjectId(),           //auto generated unique id 
               name: req.body.name,
               price: req.body.price
           });
@@ -58,4 +57,4 @@ router.get('/', (req, res, next) => {
             message: 'deleted reqs'
         });
     }); 
-    module.exports= router;
+    module.exports= router; 
