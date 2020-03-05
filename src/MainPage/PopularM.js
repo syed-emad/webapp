@@ -8,7 +8,7 @@ export class PopularM extends Component {
             <div class="row">
               <div class="col">
                 <div class="section_title text-center">
-                  <h1>Popular Classes</h1>
+                  <h1>Popular Subjects</h1>
                 </div>
               </div>
             </div>
@@ -27,13 +27,12 @@ export class PopularM extends Component {
                     </div>
                     <div class="card-text">
                       <br></br>
-                      Cant solve a questions? Select from number of teachers
-                      availbale to help you out in your olevels subject.
+                      Develop fluent english speaking and writing skills
                     </div>
                   </div>
                   <div class="price_box d-flex flex-row align-items-center">
-                    {" "}
-                    <div class="course_author_name">Get to know more</div>
+                  
+                    <div class="course_author_name">Find tutors...</div>
                     <div class="course_price d-flex flex-column align-items-center justify-content-center">
                       <span>
                         <a> -></a>
@@ -66,7 +65,7 @@ export class PopularM extends Component {
                       />
                     </div>
                     <div class="course_author_name">
-                      Michael Smith, <span>Author</span>
+                      Find tutors...
                     </div>
                     <div class="course_price d-flex flex-column align-items-center justify-content-center">
                       <span>$29</span>
@@ -98,7 +97,7 @@ export class PopularM extends Component {
                       />
                     </div>
                     <div class="course_author_name">
-                      Michael Smith, <span>Author</span>
+                      Find tutors...
                     </div>
                     <div class="course_price d-flex flex-column align-items-center justify-content-center">
                       <span>$29</span>

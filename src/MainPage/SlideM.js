@@ -20,7 +20,7 @@ export class SlideM extends Component {
                       data-animation-in="fadeInUp"
                       data-animation-out="animate-out fadeOut"
                     >
-                      Get your <span>Education</span> today!
+                      Where <span>Tutoring</span> Begins!
                     </h1>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ export class SlideM extends Component {
                       data-animation-in="fadeInUp"
                       data-animation-out="animate-out fadeOut"
                     >
-                      Get your <span>Education</span> today!
+                     Where <span>Tutoring</span> Begins!
                     </h1>
                   </div>
                 </div>
@@ -58,7 +58,7 @@ export class SlideM extends Component {
                       data-animation-in="fadeInUp"
                       data-animation-out="animate-out fadeOut"
                     >
-                      Get your <span>Education</span> today!
+                      Where <span>Tutoring</span> Begins!
                     </h1>
                   </div>
                 </div>
@@ -78,12 +78,12 @@ export class SlideM extends Component {
           <div class="hero_boxes_inner">
             <div class="container">
               <div class="row">
-                <div class="col-lg-2 hero_box_col"></div>
-                <div class="col-lg-4 hero_box_col">
+                <div class="col-lg-1 hero_box_col"></div>
+                <div class="col-lg-3 hero_box_col">
                   <div class="hero_box d-flex flex-row align-items-center justify-content-start">
                     <img src="images/earth-globe.svg" class="svg" alt="" />
                     <div class="hero_box_content">
-                      <h2 class="hero_box_title">Get Help Anytime</h2>
+                      <h2 class="hero_box_title">Online Classes</h2>
                       <a href="courses.html" class="hero_box_link">
                         view more
                       </a>
@@ -91,7 +91,7 @@ export class SlideM extends Component {
                   </div>
                 </div>
 
-                <div class="col-lg-4 hero_box_col">
+                <div class="col-lg-3 hero_box_col">
                   <div class="hero_box d-flex flex-row align-items-center justify-content-start">
                     <img src="images/professor.svg" class="svg" alt="" />
                     <div class="hero_box_content">
@@ -102,8 +102,22 @@ export class SlideM extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-2 hero_box_col"></div>
+
+                <div class="col-lg-3 hero_box_col">
+                  <div class="hero_box d-flex flex-row align-items-center justify-content-start">
+                    <img src="images/professor.svg" class="svg" alt="" />
+                    <div class="hero_box_content">
+                      <h2 class="hero_box_title">Tuition Needs</h2>
+                      <a href="teachers.html" class="hero_box_link">
+                        view more
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+              
+              
+            </div>
             </div>
           </div>
         </div>

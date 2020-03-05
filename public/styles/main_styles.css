@@ -365,7 +365,7 @@ section {
 	color: #3a3a3a;
 	vertical-align: middle;
 	text-transform: uppercase;
-	margin-left: -10px;
+	margin-left: -20px;
 }
 
 /*********************************
@@ -392,7 +392,7 @@ section {
 }
 
 .main_nav_item a {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: 700;
