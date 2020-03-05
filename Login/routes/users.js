@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+
+//User model
+const User = require("../models/Users");
+
 //Login page
 router.get("/login", (req, res) => res.render("login"));
 
@@ -16,7 +20,7 @@ router.post("/register", (req, res) => {
   if (!name || !email || !password || !password2) {
     errors.push({ msg: "Please Fill all fields" });
   }
-  //Check password
+  //Check passwordnom
   if (password != password2) {
     errors.push({ msg: "Passwords do not match" });
   }
@@ -35,11 +39,10 @@ router.post("/register", (req, res) => {
       password2
     });
   } else {
-    //res.send("pass");
     User.findOne({ email: email }).then(user => {
       if (user) {
-        //user exsists
-        errors.push({ msg: "chal ja bhai" });
+        //User exists
+        errors.push({ msg: "Email  already register" });
         res.render("register", {
           errors,
           name,
@@ -49,12 +52,27 @@ router.post("/register", (req, res) => {
         });
       } else {
         const newUser = new User({
-          name,
+          name: name,
           email,
           password
         });
-        console.log(newUser);
-        res.send("hel");
+        //console.log(newUser);
+        //res.send("hello");
+        //Hash password
+        bcrypt.genSalt(10, (err, salt) =>
+          bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            //Set
+            newUser.password = hash;
+            //Save
+            newUser
+              .save()
+              .then(user => {
+                res.redirect("/users/login");
+              })
+              .catch(err => console.log(err));
+          })
+        );
       }
     });
   }
