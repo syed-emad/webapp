@@ -18,8 +18,11 @@ mongoose.Promise=global.Promise;
 
 //app.use sets up a middlewre,everything psses thru it
 app.use(morgan('dev'));
+app.use('/uploads',express.static('uploads'));          //get files from where they are stored on the broswer
 app.use(bodyParser.urlencoded({ extended:false}));
 app.use(bodyParser.json());
+
+
 app.use((req, res, next) => {
        res.header('Access-Control-Allow-Origin', '*');  //* means allow aaccessto all to avoid cors error
        res.header('Access-Control-Allow-Headers', '*');

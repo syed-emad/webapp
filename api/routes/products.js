@@ -1,12 +1,42 @@
 const express= require('express');
 const mongoose= require('mongoose');
+const multer= require('multer');
+
+const storage= multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, './uploads/');
+    },
+    filename: function(req, file,cb){
+        cb(null, Date.now() + file.originalname);
+    }
+});
+
+const fileFilter= (req, file, cb)=>{       //storing the files in correct format as u like
+    //reject a file
+    if(file.mimetype=== 'image/jpeg' || file.mimetype==='image/png'){
+        cb(null,true);
+    } else{
+        cb(null,false);
+    }
+ 
+};
+
+const upload= multer({
+    storage: storage, 
+    limits:{
+    fileSize: 1024 * 1024 * 5
+},
+    fileFilter:fileFilter
+
+});
+
 const Product= require('../models/product');
 
 const router=   express.Router();        //sub pckg of express to handle diff routes
 
 router.get('/', (req, res, next) => {
     Product.find()
-    .select('name price _id')     //to just get name, price and id from db,nothing else
+    .select('name price _id productImage')     //to just get name, price and id from db,nothing else
     .exec()
     .then(docs => {
         const response={                   //to have only relevant info displayed
@@ -15,6 +45,7 @@ router.get('/', (req, res, next) => {
                 return {
                     name: doc.name,
                     price: doc.price,
+                    productImage: doc.productImage,
                     _id:doc._id,
                     request: {                //extra info that u want to display
                         type:'GET',
@@ -45,7 +76,7 @@ router.get('/', (req, res, next) => {
       router.get('/:prodID', (req, res, next) => {
         const id= req.params.prodID;
         Product.findById(id)
-        .select('name price _id')
+        .select('name price _id productImage')
         .exec()
         .then(doc => {
             console.log("from database",doc);
@@ -70,15 +101,16 @@ router.get('/', (req, res, next) => {
             res.statusS(500).json({error: err});
 
         } );
-        
+         
     });  
-        
-      router.post('/', (req, res, next) => {
+                 //upload.single means pasre only 1 file
+      router.post('/',  upload.single('productImage'), (req, res, next) => {
           
           const product= new Product({                        //constructor for product with javascript object
               _id: new mongoose.Types.ObjectId(),           //auto generated unique id 
               name: req.body.name,
-              price: req.body.price
+              price: req.body.price,
+              productImage: req.file.path
           });
           product
           .save()
