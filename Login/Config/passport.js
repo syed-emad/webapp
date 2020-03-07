@@ -15,17 +15,17 @@ module.exports = function(passport) {
             return done(null, false, {
               message: "That email is not registered"
             });
-          }
-          //Match password
-          bcrypt.compare(password, user.password, (err, isMatch) => {
-            if (err) throw err;
+            //Match password
+            bcrypt.compare(password, user.password, (err, isMatch) => {
+              if (err) throw err;
 
-            if (isMatch) {
-              return done(null, user);
-            } else {
-              return done(null, false, { message: "password incorrect" });
-            }
-          });
+              if (isMatch) {
+                return done(null, user);
+              } else {
+                return done(null, false, { message: "password incorrect" });
+              }
+            });
+          }
         })
         .catch(err => console.log(err));
     })
