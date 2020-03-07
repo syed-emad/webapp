@@ -4,13 +4,7 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 //importing moongooes
 const moongoes = require("mongoose");
-//passport variable
-const passport = require("passport");
-
 const app = express();
-
-//pasport congfig
-require("./Config/passport")(passport);
 
 //session defining
 const session = require("express-session");
@@ -42,10 +36,6 @@ app.use(
   })
 );
 
-//Pasport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
 //connect flash middleware
 app.use(flash());
 
@@ -53,7 +43,6 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
   next();
 });
 
