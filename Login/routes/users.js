@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+<<<<<<< HEAD
 const passport = require("passport");
 // Load User model
 const User = require("../models/User");
@@ -13,6 +14,10 @@ router.get("/login", forwardAuthenticated, (req, res) => res.render("login"));
 router.get("/register", forwardAuthenticated, (req, res) =>
   res.render("register")
 );
+=======
+//Login page
+router.get("/login", (req, res) => res.render("login"));
+>>>>>>> parent of c8fa667... Connected to MONGOOS
 
 // Register
 router.post("/register", (req, res) => {
@@ -22,7 +27,11 @@ router.post("/register", (req, res) => {
   if (!name || !email || !password || !password2) {
     errors.push({ msg: "Please enter all fields" });
   }
+<<<<<<< HEAD
 
+=======
+  //Check password
+>>>>>>> parent of c8fa667... Connected to MONGOOS
   if (password != password2) {
     errors.push({ msg: "Passwords do not match" });
   }
@@ -40,9 +49,15 @@ router.post("/register", (req, res) => {
       password2
     });
   } else {
+    //res.send("pass");
     User.findOne({ email: email }).then(user => {
       if (user) {
+<<<<<<< HEAD
         errors.push({ msg: "Email already exists" });
+=======
+        //user exsists
+        errors.push({ msg: "chal ja bhai" });
+>>>>>>> parent of c8fa667... Connected to MONGOOS
         res.render("register", {
           errors,
           name,
@@ -56,6 +71,7 @@ router.post("/register", (req, res) => {
           email,
           password
         });
+<<<<<<< HEAD
 
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -76,6 +92,10 @@ router.post("/register", (req, res) => {
               .catch(err => console.log(err));
           });
         });
+=======
+        console.log(newUser);
+        res.send("hel");
+>>>>>>> parent of c8fa667... Connected to MONGOOS
       }
     });
   }
