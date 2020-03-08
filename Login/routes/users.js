@@ -79,4 +79,15 @@ router.post("/register", (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+//Login Handle
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/users/login",
+    failureFlash: true
+  })(req, res, next);
+});
+>>>>>>> parent of 5f53b75... Login System Complete
 module.exports = router;
