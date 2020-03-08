@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
 //User model
 const User = require("../models/Users");
@@ -79,8 +80,6 @@ router.post("/register", (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-=======
 //Login Handle
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
@@ -89,5 +88,11 @@ router.post("/login", (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 });
->>>>>>> parent of 5f53b75... Login System Complete
+
+//Logout Handle
+router.get("/logout", (req, res) => {
+  req.logout();
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/users/login");
+});
 module.exports = router;
