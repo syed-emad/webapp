@@ -1,6 +1,6 @@
-const mongooes = require("mongoose");
+const mongoose = require("mongoose");
 
-const UserSchema = new moongoes.Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -19,18 +19,5 @@ const UserSchema = new moongoes.Schema({
   }
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 const User = mongoose.model("User", UserSchema);
-=======
-const User = moongoes.model("User", UserSchema);
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-const User = moongoes.model("User", UserSchema);
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-const User = moongoes.model("User", UserSchema);
->>>>>>> parent of c8fa667... Connected to MONGOOS
-
 module.exports = User;

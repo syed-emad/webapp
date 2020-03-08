@@ -1,57 +1,34 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 const passport = require("passport");
-// Load User model
-const User = require("../models/User");
-const { forwardAuthenticated } = require("../config/auth");
 
-// Login Page
-router.get("/login", forwardAuthenticated, (req, res) => res.render("login"));
+//User model
+const User = require("../models/Users");
 
-// Register Page
-router.get("/register", forwardAuthenticated, (req, res) =>
-  res.render("register")
-);
-=======
-=======
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
->>>>>>> parent of c8fa667... Connected to MONGOOS
 //Login page
 router.get("/login", (req, res) => res.render("login"));
->>>>>>> parent of c8fa667... Connected to MONGOOS
 
-// Register
+//Login page
+router.get("/register", (req, res) => res.render("register"));
+
+//Register handle
 router.post("/register", (req, res) => {
   const { name, email, password, password2 } = req.body;
   let errors = [];
 
+  //Check Required fields
   if (!name || !email || !password || !password2) {
-    errors.push({ msg: "Please enter all fields" });
+    errors.push({ msg: "Please Fill all fields" });
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-  //Check password
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-  //Check password
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-  //Check password
->>>>>>> parent of c8fa667... Connected to MONGOOS
+  //Check passwordnom
   if (password != password2) {
     errors.push({ msg: "Passwords do not match" });
   }
 
+  //Check pass length
   if (password.length < 6) {
-    errors.push({ msg: "Password must be at least 6 characters" });
+    errors.push({ msg: "Password should be atlest 6 characters" });
   }
 
   if (errors.length > 0) {
@@ -63,25 +40,10 @@ router.post("/register", (req, res) => {
       password2
     });
   } else {
-    //res.send("pass");
     User.findOne({ email: email }).then(user => {
       if (user) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        errors.push({ msg: "Email already exists" });
-=======
-        //user exsists
-        errors.push({ msg: "chal ja bhai" });
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-        //user exsists
-        errors.push({ msg: "chal ja bhai" });
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-        //user exsists
-        errors.push({ msg: "chal ja bhai" });
->>>>>>> parent of c8fa667... Connected to MONGOOS
+        //User exists
+        errors.push({ msg: "Email  already register" });
         res.render("register", {
           errors,
           name,
@@ -91,51 +53,34 @@ router.post("/register", (req, res) => {
         });
       } else {
         const newUser = new User({
-          name,
+          name: name,
           email,
           password
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        bcrypt.genSalt(10, (err, salt) => {
+        //console.log(newUser);
+        //res.send("hello");
+        //Hash password
+        bcrypt.genSalt(10, (err, salt) =>
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
+            //Set
             newUser.password = hash;
+            //Save
             newUser
               .save()
               .then(user => {
-<<<<<<< HEAD
-                req.flash(
-                  "success_msg",
-                  "You are now registered and can log in"
-                );
-=======
->>>>>>> parent of b677fe9... RegistrationComplete 100%
+                req.flash("success_msg", "You are now registered & can login");
                 res.redirect("/users/login");
               })
               .catch(err => console.log(err));
-          });
-        });
-=======
-        console.log(newUser);
-        res.send("hel");
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-        console.log(newUser);
-        res.send("hel");
->>>>>>> parent of c8fa667... Connected to MONGOOS
-=======
-        console.log(newUser);
-        res.send("hel");
->>>>>>> parent of c8fa667... Connected to MONGOOS
+          })
+        );
       }
     });
   }
 });
 
-// Login
+//Login Handle
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/dashboard",
@@ -144,11 +89,10 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-// Logout
+//Logout Handle
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success_msg", "You are logged out");
   res.redirect("/users/login");
 });
-
 module.exports = router;

@@ -1,38 +1,39 @@
+//imporitngimporting express
 const express = require("express");
+//importing ejs
 const expressLayouts = require("express-ejs-layouts");
-const mongoose = require("mongoose");
+//importing moongooes
+const moongoes = require("mongoose");
+//passport variable
 const passport = require("passport");
-const flash = require("connect-flash");
-const session = require("express-session");
 
 const app = express();
 
-<<<<<<< HEAD
-// Passport Config
-require("./config/passport")(passport);
+//pasport congfig
+require("./Config/passport")(passport);
 
-// DB Config
-const db = require("./config/keys").mongoURI;
-=======
+//session defining
+const session = require("express-session");
+//importing flash
+const flash = require("connect-flash");
+
 //db config
 const db = require("./config/keys").MongoURI;
->>>>>>> parent of b677fe9... RegistrationComplete 100%
 
-// Connect to MongoDB
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB Connected"))
+//connect to mongo
+moongoes
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDb Connected..."))
   .catch(err => console.log(err));
 
-// EJS
+//ejs
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 
-// Express body parser
-app.use(express.urlencoded({ extended: true }));
+//bodyparser
+app.use(express.urlencoded({ extended: false }));
 
-<<<<<<< HEAD
-// Express session
+//express session middleware
 app.use(
   session({
     secret: "secret",
@@ -41,30 +42,25 @@ app.use(
   })
 );
 
-// Passport middleware
+//Pasport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Connect flash
+//connect flash middleware
 app.use(flash());
 
-// Global variables
-app.use(function(req, res, next) {
+//global variabl
+app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   next();
 });
 
-// Routes
-app.use("/", require("./routes/index.js"));
-app.use("/users", require("./routes/users.js"));
-=======
 //routes
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 //app.use("/register", require("./routes/register"));
->>>>>>> parent of b677fe9... RegistrationComplete 100%
 
 const PORT = process.env.PORT || 5000;
 
