@@ -7,7 +7,6 @@ const mongoose = require('mongoose');  //mongo db pckge
 const app = express();
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
-const userRoutes= require('./routes/user');
 
 mongoose.connect('mongodb+srv://node-api:'+ process.env.MONGO_ATLAS_PW +'@cluster0-qzcg0.mongodb.net/test?retryWrites=true&w=majority' ,
 {   useNewUrlParser: true,
@@ -37,7 +36,6 @@ app.use((req, res, next) => {
 
 app.use('/products', productRoutes);    //goes to page products
 app.use('/orders',orderRoutes); 
-app.use('/user',userRoutes); 
 
 app.use((req, res, next) => {
        const error= new Error('not found');
