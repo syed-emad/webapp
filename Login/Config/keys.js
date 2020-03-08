@@ -7,6 +7,9 @@ module.exports = {
   MongoURI:
     "mongodb+srv://emad:emad@cluster0-cguh9.mongodb.net/test?retryWrites=true&w=majority"
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of c8fa667... Connected to MONGOOS
+=======
 >>>>>>> parent of c8fa667... Connected to MONGOOS
 =======
 >>>>>>> parent of c8fa667... Connected to MONGOOS

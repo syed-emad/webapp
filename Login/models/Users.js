@@ -21,7 +21,11 @@ const UserSchema = new moongoes.Schema({
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const User = mongoose.model("User", UserSchema);
+=======
+const User = moongoes.model("User", UserSchema);
+>>>>>>> parent of c8fa667... Connected to MONGOOS
 =======
 const User = moongoes.model("User", UserSchema);
 >>>>>>> parent of c8fa667... Connected to MONGOOS
