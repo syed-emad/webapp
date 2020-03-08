@@ -1,39 +1,32 @@
-//imporitngimporting express
 const express = require("express");
-//importing ejs
 const expressLayouts = require("express-ejs-layouts");
-//importing moongooes
-const moongoes = require("mongoose");
-//passport variable
+const mongoose = require("mongoose");
 const passport = require("passport");
+const flash = require("connect-flash");
+const session = require("express-session");
 
 const app = express();
 
-//pasport congfig
-require("./Config/passport")(passport);
+// Passport Config
+require("./config/passport")(passport);
 
-//session defining
-const session = require("express-session");
-//importing flash
-const flash = require("connect-flash");
+// DB Config
+const db = require("./config/keys").mongoURI;
 
-//db config
-const db = require("./config/keys").MongoURI;
-
-//connect to mongo
-moongoes
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDb Connected..."))
+// Connect to MongoDB
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-//ejs
+// EJS
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 
-//bodyparser
-app.use(express.urlencoded({ extended: false }));
+// Express body parser
+app.use(express.urlencoded({ extended: true }));
 
-//express session middleware
+// Express session
 app.use(
   session({
     secret: "secret",
@@ -42,25 +35,24 @@ app.use(
   })
 );
 
-//Pasport middleware
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-//connect flash middleware
+// Connect flash
 app.use(flash());
 
-//global variabl
-app.use((req, res, next) => {
+// Global variables
+app.use(function(req, res, next) {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   next();
 });
 
-//routes
-app.use("/", require("./routes/index"));
-app.use("/users", require("./routes/users"));
-//app.use("/register", require("./routes/register"));
+// Routes
+app.use("/", require("./routes/index.js"));
+app.use("/users", require("./routes/users.js"));
 
 const PORT = process.env.PORT || 5000;
 
