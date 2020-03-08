@@ -64,10 +64,13 @@ router.post("/register", (req, res) => {
             newUser
               .save()
               .then(user => {
+<<<<<<< HEAD
                 req.flash(
                   "success_msg",
                   "You are now registered and can log in"
                 );
+=======
+>>>>>>> parent of b677fe9... RegistrationComplete 100%
                 res.redirect("/users/login");
               })
               .catch(err => console.log(err));

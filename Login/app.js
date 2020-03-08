@@ -7,11 +7,16 @@ const session = require("express-session");
 
 const app = express();
 
+<<<<<<< HEAD
 // Passport Config
 require("./config/passport")(passport);
 
 // DB Config
 const db = require("./config/keys").mongoURI;
+=======
+//db config
+const db = require("./config/keys").MongoURI;
+>>>>>>> parent of b677fe9... RegistrationComplete 100%
 
 // Connect to MongoDB
 mongoose
@@ -26,6 +31,7 @@ app.set("view engine", "ejs");
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
 
+<<<<<<< HEAD
 // Express session
 app.use(
   session({
@@ -53,6 +59,12 @@ app.use(function(req, res, next) {
 // Routes
 app.use("/", require("./routes/index.js"));
 app.use("/users", require("./routes/users.js"));
+=======
+//routes
+app.use("/", require("./routes/index"));
+app.use("/users", require("./routes/users"));
+//app.use("/register", require("./routes/register"));
+>>>>>>> parent of b677fe9... RegistrationComplete 100%
 
 const PORT = process.env.PORT || 5000;
 
