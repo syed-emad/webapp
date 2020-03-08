@@ -9,6 +9,7 @@ const passport = require("passport");
 
 const app = express();
 
+<<<<<<< HEAD
 //pasport congfig
 require("./Config/passport")(passport);
 
@@ -17,6 +18,8 @@ const session = require("express-session");
 //importing flash
 const flash = require("connect-flash");
 
+=======
+>>>>>>> parent of b677fe9... RegistrationComplete 100%
 //db config
 const db = require("./config/keys").MongoURI;
 
@@ -32,30 +35,6 @@ app.set("view engine", "ejs");
 
 //bodyparser
 app.use(express.urlencoded({ extended: false }));
-
-//express session middleware
-app.use(
-  session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true
-  })
-);
-
-//Pasport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-//connect flash middleware
-app.use(flash());
-
-//global variabl
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  next();
-});
 
 //routes
 app.use("/", require("./routes/index"));
