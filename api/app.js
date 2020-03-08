@@ -15,7 +15,6 @@ mongoose.connect('mongodb+srv://node-api:'+ process.env.MONGO_ATLAS_PW +'@cluste
 }
 
 );
-mongoose.Promise=global.Promise;
 
 //app.use sets up a middlewre,everything psses thru it
 app.use(morgan('dev'));
