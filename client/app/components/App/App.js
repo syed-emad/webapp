@@ -16,8 +16,6 @@ const App = ({ children }) => (
     <Route exact path="/" component={HeaderM}></Route>
     <Route exact path="/" component={SlideM}></Route>
     <Route exact path="/" component={PopularM}></Route>
-    <Route exact path="/" component={SlideM}></Route>
-
     <Route exact path="/" component={Testimonials}></Route>
     <Route exact path="/" component={FooterX}></Route>
     <Route exact path="/Home" component={Home}></Route>
