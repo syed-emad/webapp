@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import "whatwg-fetch";
 import { getFromStorage, setInStorage } from "../../utils/storage";
-import sign from "../Signupin/sign";
-
-import HeaderM from "../MainPage/HeaderM";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import FooterX from "../MainPage/FooterX";
 
 const localStorageObjectName = "login_system_storage";
 
@@ -280,8 +275,6 @@ class Home extends Component {
     if (!token) {
       return (
         <>
-          <Car />
-
           <div>
             {/* If there is an error in the sign in, show it. */}
             {signInError ? <p>{signInError}</p> : null}
@@ -346,7 +339,6 @@ class Home extends Component {
       <>
         <div>
           <p>Account</p>
-          <Route exact path="/Footerx" component={FooterX}></Route>
           <button onClick={this.logout}>Logout</button>
         </div>
       </>
@@ -355,14 +347,3 @@ class Home extends Component {
 }
 
 export default Home;
-class Car extends React.Component {
-  render() {
-    return (
-      <>
-        <>
-          <div></div>
-        </>
-      </>
-    );
-  }
-}
