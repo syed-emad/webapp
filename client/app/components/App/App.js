@@ -11,6 +11,7 @@ import ServiceX from "../MainPage/ServiceX";
 import Testimonials from "../MainPage/Testimonials";
 import FooterX from "../MainPage/FooterX";
 import Home from "../Home/Home";
+import TM from "../Teachers/TM";
 const App = ({ children }) => (
   <>
     <Route exact path="/" component={HeaderM}></Route>
@@ -19,6 +20,7 @@ const App = ({ children }) => (
     <Route exact path="/" component={Testimonials}></Route>
     <Route exact path="/" component={FooterX}></Route>
     <Route exact path="/Home" component={Home}></Route>
+    <Route exact path="/TM" component={TM}></Route>
   </>
 );
 

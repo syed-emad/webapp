@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "whatwg-fetch";
 import { getFromStorage, setInStorage } from "../../utils/storage";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import HeaderM from "../MainPage/HeaderM";
+import TeachersMain from "../Teachers/TM";
 const localStorageObjectName = "login_system_storage";
+import { Redirect } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
@@ -166,6 +169,7 @@ class Home extends Component {
             signInPassword: "",
             token: json.token
           });
+          <Redirect to="/TM" />;
         } else {
           this.setState({
             signInError: json.mes,
@@ -270,11 +274,12 @@ class Home extends Component {
 
     /**
      * This should probably be broken into multiple components and conglomerated in some
-     * container, but what the hell
+     * container,
      */
     if (!token) {
       return (
         <>
+          {" "}
           <div>
             {/* If there is an error in the sign in, show it. */}
             {signInError ? <p>{signInError}</p> : null}
@@ -339,6 +344,7 @@ class Home extends Component {
       <>
         <div>
           <p>Account</p>
+
           <button onClick={this.logout}>Logout</button>
         </div>
       </>
@@ -347,3 +353,14 @@ class Home extends Component {
 }
 
 export default Home;
+class RecipeContainer extends React.Component {
+  render() {
+    return (
+      <div className="recipe-container">
+        <p>asdasdsad</p>
+        <Route exact path="/" component={HeaderM}></Route>
+        {this.props.children}
+      </div>
+    );
+  }
+}
