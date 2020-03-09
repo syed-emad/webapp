@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const TeacherSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -16,14 +16,9 @@ const UserSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  },
-  userType: {
-    type: String,
-    ref: 'UserType',
-    required: true
   }
 });
 
-const User = mongoose.model('User', UserSchema);
+const Teacher = mongoose.model('Teacher', TeacherSchema);
 
-module.exports = User;
+module.exports = Teacher;
