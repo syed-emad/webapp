@@ -240,6 +240,14 @@ module.exports = app => {
           });
         }
 
+        // if there aren't any documents found by that token
+        if (sessions.length != 1) {
+          return res.send({
+            success: false,
+            mes: "Error: Invalid token."
+          });
+        }
+
         // otherwise, everything went fine and dandy
         return res.send({
           success: true,
