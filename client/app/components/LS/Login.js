@@ -60,7 +60,7 @@ class Login extends Component {
     if (obj && obj.token) {
       // get token from local storage
       const { token } = obj;
-
+      console.log(token);
       // verify token
       fetch(`/api/account/verify?token=${token}`)
         .then(res => res.json())
