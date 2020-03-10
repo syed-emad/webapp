@@ -335,6 +335,12 @@ class Home extends Component {
             />
             <br />
             <button onClick={this.onSignUp}>Sign Up</button>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <a href="">Login With FB</a>
           </div>
         </>
       );
