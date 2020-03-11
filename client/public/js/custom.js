@@ -6,11 +6,12 @@
 
 1. Vars and Inits
 2. Set Header
-3. Init Hero Slider
-4. Init SVG
-5. Initialize Hamburger
-6. Initialize Testimonials Slider
-7. Initialize Parallax
+3. Init Menu
+4. Init Home SLider
+5. Init SVG
+6. Init Isotope
+7. Init Clients Slider
+8. Init Parallax
 
 
 ******************************/
@@ -25,17 +26,18 @@ $(document).ready(function()
 
 	*/
 
-	var hamb = $('.hamburger');
 	var header = $('.header');
-	var hambActive = false;
-	var menuActive = false;
-	var ctrl = new ScrollMagic.Controller();
 
 	setHeader();
 
 	$(window).on('resize', function()
 	{
 		setHeader();
+
+		setTimeout(function()
+		{
+			$(window).trigger('resize.px.parallax');
+		}, 375);
 	});
 
 	$(document).on('scroll', function()
@@ -43,10 +45,11 @@ $(document).ready(function()
 		setHeader();
 	});
 
-	initHeroSlider();
+	initMenu();
+	initHomeSlider();
 	initSvg();
-	initHamburger();
-	initTestimonialsSlider();
+	initIsotope();
+	initClientsSlider();
 	initParallax();
 
 	/* 
@@ -57,272 +60,240 @@ $(document).ready(function()
 
 	function setHeader()
 	{
-		if(window.innerWidth < 992)
+		if($(window).scrollTop() > 91)
 		{
-			if($(window).scrollTop() > 100)
-			{
-				header.addClass('scrolled');
-			}
-			else
-			{
-				header.removeClass('scrolled');
-			}
+			header.addClass('scrolled');
 		}
 		else
 		{
-			if($(window).scrollTop() > 100)
-			{
-				header.addClass('scrolled');
-			}
-			else
-			{
-				header.removeClass('scrolled');
-			}
-		}
-		if(window.innerWidth > 991 && menuActive)
-		{
-			closeMenu();
+			header.removeClass('scrolled');
 		}
 	}
 
 	/* 
 
-	3. Init Hero Slider
+	3. Init Menu
 
 	*/
 
-	function initHeroSlider()
+	function initMenu()
 	{
-		if($('.hero_slider').length)
+		if($('.menu').length)
 		{
-			var owl = $('.hero_slider');
+			var header = $('.header');
+			var hOverlay = $('.header_overlay');
+			var menu = $('.menu');
+			var hamb = $('.hamburger');
+			var sup = $('.super_container_inner');
+			var close = $('.menu_close');
+			var overlay = $('.super_overlay');
 
-			owl.owlCarousel(
+			hamb.on('click', function()
 			{
-				items:1,
-				loop:true,
-				smartSpeed:800,
-				autoplay:true,
-				nav:false,
-				dots:false
+				header.toggleClass('active');
+				sup.toggleClass('active');
+				menu.toggleClass('active');
 			});
 
-			// add animate.css class(es) to the elements to be animated
-			function setAnimation ( _elem, _InOut )
+			close.on('click', function()
 			{
-				// Store all animationend event name in a string.
-				// cf animate.css documentation
-				var animationEndEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-
-				_elem.each ( function ()
-				{
-					var $elem = $(this);
-					var $animationType = 'animated ' + $elem.data( 'animation-' + _InOut );
-
-					$elem.addClass($animationType).one(animationEndEvent, function ()
-					{
-						$elem.removeClass($animationType); // remove animate.css Class at the end of the animations
-					});
-				});
-			}
-
-			// Fired before current slide change
-			owl.on('change.owl.carousel', function(event)
-			{
-				var $currentItem = $('.owl-item', owl).eq(event.item.index);
-				var $elemsToanim = $currentItem.find("[data-animation-out]");
-				setAnimation ($elemsToanim, 'out');
+				header.toggleClass('active');
+				sup.toggleClass('active');
+				menu.toggleClass('active');
 			});
 
-			// Fired after current slide has been changed
-			owl.on('changed.owl.carousel', function(event)
+			overlay.on('click', function()
 			{
-				var $currentItem = $('.owl-item', owl).eq(event.item.index);
-				var $elemsToanim = $currentItem.find("[data-animation-in]");
-				setAnimation ($elemsToanim, 'in');
-			})
+				header.toggleClass('active');
+				sup.toggleClass('active');
+				menu.toggleClass('active');
+			});
 
-			// Handle Custom Navigation
-			if($('.hero_slider_left').length)
+			hOverlay.on('click', function()
 			{
-				var owlPrev = $('.hero_slider_left');
-				owlPrev.on('click', function()
-				{
-					owl.trigger('prev.owl.carousel');
-				});
-			}
-
-			if($('.hero_slider_right').length)
-			{
-				var owlNext = $('.hero_slider_right');
-				owlNext.on('click', function()
-				{
-					owl.trigger('next.owl.carousel');
-				});
-			}
-		}	
+				header.toggleClass('active');
+				sup.toggleClass('active');
+				menu.toggleClass('active');
+			});
+		}
 	}
 
 	/* 
 
-	4. Init SVG
+	4. Init Home SLider
+
+	*/
+
+	function initHomeSlider()
+	{
+		if($('.home_slider').length)
+		{
+			var homeSlider = $('.home_slider');
+			homeSlider.owlCarousel(
+			{
+				items:1,
+				animateOut: 'slideOutDown',
+   				animateIn: 'fadeIn',
+				loop:true,
+				autoplay:true,
+				nav:false,
+				mouseDrag:false,
+				smartSpeed:1200
+			});
+
+			/* Custom dots events */
+			if($('.home_slider_custom_dot').length)
+			{
+				$('.home_slider_custom_dot').on('click', function()
+				{
+					$('.home_slider_custom_dot').removeClass('active');
+					$(this).addClass('active');
+					homeSlider.trigger('to.owl.carousel', [$(this).index(), 300]);
+				});
+			}
+
+			/* Change active class for dots when slide changes by nav or touch */
+			homeSlider.on('changed.owl.carousel', function(event)
+			{
+				$('.home_slider_custom_dot').removeClass('active');
+				$('.home_slider_custom_dots li').eq(event.page.index).addClass('active');
+			});
+
+			/* Pause slider autoplay when search input field has focus
+			   and resume autoplay when focus is lost */
+			$('.search_input').on('focus', function()
+			{
+				homeSlider.trigger('stop.owl.autoplay');
+			});
+
+			$('.search_input').on('focusout', function()
+			{
+				homeSlider.trigger('play.owl.autoplay');
+			});
+		}
+	}
+
+	/* 
+
+	5. Init SVG
 
 	*/
 
 	function initSvg()
 	{
-		jQuery('img.svg').each(function()
+		if($('img.svg').length)
 		{
-			var $img = jQuery(this);
-			var imgID = $img.attr('id');
-			var imgClass = $img.attr('class');
-			var imgURL = $img.attr('src');
-
-			jQuery.get(imgURL, function(data)
+			jQuery('img.svg').each(function()
 			{
-				// Get the SVG tag, ignore the rest
-				var $svg = jQuery(data).find('svg');
+				var $img = jQuery(this);
+				var imgID = $img.attr('id');
+				var imgClass = $img.attr('class');
+				var imgURL = $img.attr('src');
 
-				// Add replaced image's ID to the new SVG
-				if(typeof imgID !== 'undefined') {
-				$svg = $svg.attr('id', imgID);
-				}
-				// Add replaced image's classes to the new SVG
-				if(typeof imgClass !== 'undefined') {
-				$svg = $svg.attr('class', imgClass+' replaced-svg');
-				}
+				jQuery.get(imgURL, function(data)
+				{
+					// Get the SVG tag, ignore the rest
+					var $svg = jQuery(data).find('svg');
 
-				// Remove any invalid XML tags as per http://validator.w3.org
-				$svg = $svg.removeAttr('xmlns:a');
+					// Add replaced image's ID to the new SVG
+					if(typeof imgID !== 'undefined') {
+					$svg = $svg.attr('id', imgID);
+					}
+					// Add replaced image's classes to the new SVG
+					if(typeof imgClass !== 'undefined') {
+					$svg = $svg.attr('class', imgClass+' replaced-svg');
+					}
 
-				// Replace image with new SVG
-				$img.replaceWith($svg);
-			}, 'xml');
-		});
+					// Remove any invalid XML tags as per http://validator.w3.org
+					$svg = $svg.removeAttr('xmlns:a');
+
+					// Replace image with new SVG
+					$img.replaceWith($svg);
+				}, 'xml');
+			});
+		}	
 	}
 
 	/* 
 
-	5. Initialize Hamburger
+	6. Init Isotope
 
 	*/
 
-	function initHamburger()
+	function initIsotope()
 	{
-		if($('.hamburger_container').length)
+		if($('.grid').length)
 		{
-			var hamb = $('.hamburger_container');
-
-			hamb.on('click', function(event)
+			$('.grid').isotope(
 			{
-				event.stopPropagation();
-
-				if(!menuActive)
-				{
-					openMenu();
-					
-					$(document).one('click', function cls(e)
-					{
-						if($(e.target).hasClass('menu_mm'))
-						{
-							$(document).one('click', cls);
-						}
-						else
-						{
-							closeMenu();
-						}
-					});
-				}
-				else
-				{
-					$('.menu_container').removeClass('active');
-					menuActive = false;
-				}
+				itemSelector:'.grid-item',
+				layoutMode: 'fitRows'
 			});
 		}
 	}
 
-	function openMenu()
-	{
-		var fs = $('.menu_container');
-		fs.addClass('active');
-		hambActive = true;
-		menuActive = true;
-	}
-
-	function closeMenu()
-	{
-		var fs = $('.menu_container');
-		fs.removeClass('active');
-		hambActive = false;
-		menuActive = false;
-	}
-
 	/* 
 
-	6. Initialize Testimonials Slider
+	7. Init Clients Slider
 
 	*/
 
-	function initTestimonialsSlider()
+	function initClientsSlider()
 	{
-		if($('.testimonials_slider').length)
+		if($('.clients_slider').length)
 		{
-			var owl1 = $('.testimonials_slider');
-
-			owl1.owlCarousel(
+			var clientsSlider = $('.clients_slider');
+			clientsSlider.owlCarousel(
 			{
-				items:1,
-				loop:true,
-				nav:false,
+				items:5,
 				autoplay:true,
-				autoplayTimeout:5000,
-				smartSpeed:1000
+				loop:true,
+				dots:false,
+				nav:false,
+				smartSpeed:1200,
+				margin:80,
+				responsive:
+				{
+					0:
+					{
+						items:1,
+						margin:0
+					},
+					576:
+					{
+						items:3,
+						margin:50
+					},
+					768:
+					{
+						items:4,
+						margin:50
+					},
+					992:
+					{
+						items:5,
+						margin:80
+					}
+				}
 			});
 		}
 	}
 
 	/* 
 
-	7. Initialize Parallax
+	8. Init Parallax
 
 	*/
 
 	function initParallax()
 	{
-		// Add parallax effect to home slider
-		if($('.slider_prlx').length)
+		if($('.parallax_background').length)
 		{
-			var homeBcg = $('.slider_prlx');
-
-			var homeBcgScene = new ScrollMagic.Scene({
-		        triggerElement: homeBcg,
-		        triggerHook: 1,
-		        duration: "100%"
-		    })
-		    .setTween(TweenMax.to(homeBcg, 1, {y: '15%', ease:Power0.easeNone}))
-		    .addTo(ctrl);
-		}
-
-		// Add parallax effect to every element with class prlx
-		// Add class prlx_parent to the parent of the element
-		if($('.prlx_parent').length && $('.prlx').length)
-		{
-			var elements = $('.prlx_parent');
-
-			elements.each(function()
+			$('.parallax_background').parallax(
 			{
-				var ele = this;
-				var bcg = $(ele).find('.prlx');
-
-				var slideParallaxScene = new ScrollMagic.Scene({
-			        triggerElement: ele,
-			        triggerHook: 1,
-			        duration: "200%"
-			    })
-			    .setTween(TweenMax.from(bcg, 1, {y: '-30%', ease:Power0.easeNone}))
-			    .addTo(ctrl);
+				speed:0.8
 			});
 		}
 	}
+
 });

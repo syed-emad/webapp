@@ -5,7 +5,7 @@
 
 [Table of Contents]
 
-1. 1600px
+1. 1620px
 2. 1440px
 3. 1280px
 4. 1199px
@@ -22,12 +22,15 @@
 ******************************/
 
 /************
-1. 1600px
+1. 1620px
 ************/
 
-@media only screen and (max-width: 1600px)
+@media only screen and (max-width: 1620px)
 {
-	
+	.container_custom .container
+	{
+		max-width: 1400px;
+	}
 }
 
 /************
@@ -36,7 +39,14 @@
 
 @media only screen and (max-width: 1440px)
 {
-	
+	.container_custom .container
+	{
+		max-width: 1170px;
+	}
+	.icon_box_title
+	{
+		max-width: 200px;
+	}
 }
 
 /************
@@ -45,31 +55,7 @@
 
 @media only screen and (max-width: 1380px)
 {
-	.header
-	{
-		width: 1200px;
-	}
-	.header_content
-	{
-		width: calc(100% - 219px);
-	}
-	.main_nav_container
-	{
-		padding-right: 63px;
-	}
-	.header_side
-	{
-		width: 219px;
-	}
-	.header_side span
-	{
-		font-size: 14px;
-	}
-	.header_side img
-	{
-		width: 20px;
-		height: 20px;
-	}
+	
 }
 
 /************
@@ -78,34 +64,17 @@
 
 @media only screen and (max-width: 1280px)
 {
-	.header
+	.main_nav ul li:not(:last-of-type)
 	{
-		width: 90%;
+		margin-right: 25px;
 	}
-	.header_content
+	.add_listing
 	{
-		width: 100%;
+		margin-left: 30px;
 	}
-	.header_side
+	.log_reg
 	{
-		display: none !important;
-	}
-	.main_nav_container
-	{
-		padding-right: 53px;
-	}
-	.hero_slide_content h1
-	{
-		font-size: 56px;
-	}
-	.card-title
-	{
-		font-size: 20px;
-	}
-	.register_content,
-	.search_content
-	{
-		width: 442px;
+		margin-left: 20px;
 	}
 }
 
@@ -115,9 +84,29 @@
 
 @media only screen and (max-width: 1199px)
 {
-	.hero_box
+	.container_custom .container
 	{
-		padding-left: 20px;
+		max-width: 960px;
+	}
+	.location
+	{
+		width: calc((100% - 25px) / 2);
+	}
+	.icon_box
+	{
+		width: calc((100% - 60px) / 3);
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.icon_box_icon
+	{
+		width: 136px;
+		height: 136px;
+	}
+	.icon_box_icon::before
+	{
+		width: 106px;
+		height: 106px;
 	}
 }
 
@@ -136,10 +125,7 @@
 
 @media only screen and (max-width: 1024px)
 {
-	.main_nav_item
-	{
-		margin-right: 33px;
-	}
+	
 }
 
 /************
@@ -148,92 +134,92 @@
 
 @media only screen and (max-width: 991px)
 {
-	.main_nav_container
+	.container_custom .container
+	{
+		max-width: 720px;
+	}
+	.main_nav
 	{
 		display: none;
 	}
-	.logo_container
-	{
-		padding-left: 30px;
-	}
-	.hamburger_container
+	.hamburger
 	{
 		display: block;
 	}
-	.hero_slide_content h1
+	.search_input
+	{
+		width: calc(100% - 170px);
+	}
+	.search_button
+	{
+		width: 152px;
+	}
+	.cat_icon
+	{
+		width: 50px;
+		height: 50px;
+	}
+	.grid_container
+	{
+		left: auto;
+		width: 100%;
+	}
+	.grid-item
+	{
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.grid_large
+	{
+		width: 100%;
+	}
+	.grid_medium
+	{
+		width: 100%;
+	}
+	.grid_small
+	{
+		width: 100%;
+	}
+	.icon_box
+	{
+		width: 100%;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+	.icon_box_title
+	{
+		max-width: none;
+	}
+	.cta_title h1
 	{
 		font-size: 48px;
 	}
-	.hero_boxes
+	.cta_text p
 	{
-		width: 100%;
-		height: auto;
-		padding-top: 117px;
+		font-size: 16px;
 	}
-	.hero_boxes_inner
+	.cta_2
 	{
-		position: relative;
-		top: auto;
-		left: auto;
+		padding-bottom: 80px;
 	}
-	.hero_box
+	.cta_2_content
 	{
-		padding-left: 50px;
-	}
-	.hero_box_col
-	{
-		margin-bottom: 30px;
-	}
-	.hero_box_col:last-child
-	{
-		margin-bottom: 0px;
-	}
-	.course_box
-	{
-		margin-bottom: 80px;
-	}
-	.course_box:last-child
-	{
-		margin-bottom: 0px;
-	}
-	.search_section
-	{
-		padding-top: 156px;
-		padding-bottom: 161px;
-	}
-	.register_content,
-	.search_content
-	{
-		width: 75%;
-	}
-	.testimonials_slider_container
-	{
-		padding-left: 0px;
 		padding-right: 0px;
+		padding-top: 127px;
+		padding-bottom: 27px;
 	}
-	.event_date
+	.cta_2_image
 	{
-		margin-top: 30px;
+		height: 500px;
 	}
-	.event_name
+	.cta_2_image img
 	{
-		margin-top: 17px;
+		
 	}
-	.event_content p
+	.footer_nav ul li:not(:last-of-type)
 	{
-		margin-bottom: 0px;
-	}
-	.newsletter_form_container
-	{
-		width: 90%;
-	}
-	.footer_col
-	{
-		margin-bottom: 30px;
-	}
-	.footer_col:last-child
-	{
-		margin-bottom: 0px;
+		margin-right: 31px;
 	}
 }
 
@@ -270,19 +256,107 @@
 
 @media only screen and (max-width: 767px)
 {
-	.menu_container
+	.container_custom .container
 	{
-		right: -100vw;
-		width: 100vw;
-		height: 100vh;
+		max-width: 540px;
 	}
-	.newsletter_email
+	.add_listing
+	{
+		width: 122px;
+		height: 38px;
+	}
+	.add_listing
+	{
+		display: none;
+	}
+	.log_reg ul li a
+	{
+		font-size: 14px;
+	}
+	.menu_link
+	{
+		display: block;
+	}
+	.home_slider_dots
+	{
+		left: 30px;
+	}
+	.home_title h1
+	{
+		font-size: 56px;
+	}
+	.home_title h1 span::after
+	{
+		top: 17px;
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		font-size: 14px;
+	}
+	.category
+	{
+		width: 100%;
+		padding-left: 30px;
+	}
+	.category a
+	{
+		padding-bottom: 40px;
+	}
+	.category:not(:last-child)::after
+	{
+		right: auto;
+		top: auto;
+		bottom: 0;
+		left: 30px;
+		-webkit-transform: translateY(0%);
+		-moz-transform: translateY(0%);
+		-ms-transform: translateY(0%);
+		-o-transform: translateY(0%);
+		transform: translateY(0%);
+		width: calc(100% - 60px);
+		height: 2px;
+	}
+	.cat_title
+	{
+		margin-top: 0;
+		margin-left: 30px;
+	}
+	.location
 	{
 		width: 100%;
 	}
-	.newsletter_submit_btn
+	.location_title
 	{
-		margin-top: 15px;
+		left: 15%;
+		width: 70%;
+		height: 40px;
+	}
+	.location_title > div a
+	{
+		font-size: 16px;
+		line-height: 40px;
+	}
+	.cta_title h1
+	{
+		font-size: 36px;
+	}
+	.cta_text p
+	{
+		font-size: 14px;
+	}
+	.cta_2_title h1
+	{
+		font-size: 40px;
+	}
+	.footer_container
+	{
+		height: auto;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.copyright
+	{
+		margin-top: 20px;
 	}
 }
 
@@ -292,137 +366,64 @@
 
 @media only screen and (max-width: 575px)
 {
-	h1{font-size: 24px;}
-	p{font-size:13px;}
-	.header
-	{
-		height: 74px;
-	}
-	.logo_container
-	{
-		padding-left: 15px;
-	}
-	.logo img
-	{
-		width: 30px;
-	}
-	.logo span
-	{
-		font-size: 16px;
-	}
-	.hamburger_container
-	{
-		right: 5px;
-	}
-	.menu
-	{
-		top: 70px;
-	}
-	.menu_item
-	{
-		margin-bottom: 0px;
-	}
-	.menu_item a
-	{
-		font-size: 24px;
-	}
-	.menu_copyright
-	{
-		display: none;
-	}
-	.menu_social_container
-	{
-		margin-top: 50px;
-	}
-	.menu_close_container
-	{
-		right: 30px;
-		top: 34px;
-	}
-	.hero_slider_nav
-	{
-		display: none;
-	}
-	.hero_slide_content
+	.container_custom .container
 	{
 		max-width: 100%;
+	}
+	.button
+	{
+		width: 156px;
+		height: 47px;
+	}
+	.button a
+	{
+		font-size: 14px;
+		line-height: 47px;
+	}
+	.header_content
+	{
+		height: 90px;
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-	.card-title
-	{
-		margin-top: 30px;
-	}
-	.card-title a
+	.logo a
 	{
 		font-size: 20px;
 	}
-	.card-text
+	.home
 	{
-		font-size: 13px;
+		height: 100vh;
 	}
-	.price_box
+	.home_title h1
 	{
-		margin-top: 37px;
+		font-size: 40px;
 	}
-	.register_section,
-	.search_section
+	.home_title h1 span::after
 	{
-		padding-top: 115px;
-		padding-bottom: 120px;
+		top: 8px;
+		right: -12px;
 	}
-	.register_content,
-	.search_content
+	.home_slider_dots
 	{
+		display: none;
+	}
+	.search_button
+	{
+		margin-top: 15px;
+	}
+	.search_input
+	{
+		padding-left: 0;
 		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
+		text-align: center;
 	}
-	.register_text
-	{
-		margin-top: 25px;
-	}
-	.register_button
-	{
-		margin-top: 53px;
-	}
-	.testimonials_slider .owl-dots
-	{
-		display: none !important;
-	}
-	.testimonials_item
-	{
-		padding-bottom: 0px;
-	}
-	.event_date
-	{
-		width: 100px;
-		height: 100px;
-	}
-	.event_day
+	.cta_2_title h1
 	{
 		font-size: 36px;
 	}
-	.event_month
+	.cta_2_image
 	{
-		font-size: 14px;
-	}
-	.event_name
-	{
-		margin-top: 5px;
-	}
-	.footer_bar
-	{
-		padding-top: 49px;
-		padding-bottom: 52px;
-	}
-	.footer_social
-	{
-		margin-top: 20px;
-	}
-	.footer_copyright span
-	{
-		font-size: 13px;
+		height: 400px;
 	}
 }
 
@@ -450,47 +451,10 @@
 
 @media only screen and (max-width: 479px)
 {
-	.header
+	.icon_box
 	{
-		height: 60px;
-		top: 15px;
-	}
-	.hero_slide_content h1
-	{
-		font-size: 28px;
-	}
-	.hero_slide_content h1 span
-	{
-		padding-left: 5px;
-		padding-right: 5px;
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-	.hero_boxes
-	{
-		padding-top: 80px;
-	}
-	.hero_box
-	{
-		padding-left: 15px;
-		height: 120px;
-	}
-	.hero_box_content
-	{
-		padding-top: 6px;
-	}
-	.hero_box img
-	{
-		width: 45px;
-	}
-	.hero_box_title
-	{
-		font-size: 18px;
-		margin-bottom: 3px;
-	}
-	.hero_box_link
-	{
-		font-size: 10px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 }
 
