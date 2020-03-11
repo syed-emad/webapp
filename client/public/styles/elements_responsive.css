@@ -5,7 +5,7 @@
 
 [Table of Contents]
 
-1. 1600px
+1. 1620px
 2. 1440px
 3. 1280px
 4. 1199px
@@ -22,10 +22,10 @@
 ******************************/
 
 /************
-1. 1600px
+1. 1620px
 ************/
 
-@media only screen and (max-width: 1600px)
+@media only screen and (max-width: 1620px)
 {
 	
 }
@@ -45,31 +45,7 @@
 
 @media only screen and (max-width: 1380px)
 {
-	.header
-	{
-		width: 1200px;
-	}
-	.header_content
-	{
-		width: calc(100% - 219px);
-	}
-	.main_nav_container
-	{
-		padding-right: 63px;
-	}
-	.header_side
-	{
-		width: 219px;
-	}
-	.header_side span
-	{
-		font-size: 14px;
-	}
-	.header_side img
-	{
-		width: 20px;
-		height: 20px;
-	}
+	
 }
 
 /************
@@ -78,21 +54,17 @@
 
 @media only screen and (max-width: 1280px)
 {
-	.header
+	.main_nav ul li:not(:last-of-type)
 	{
-		width: 90%;
+		margin-right: 25px;
 	}
-	.header_content
+	.add_listing
 	{
-		width: 100%;
+		margin-left: 30px;
 	}
-	.header_side
+	.log_reg
 	{
-		display: none !important;
-	}
-	.main_nav_container
-	{
-		padding-right: 53px;
+		margin-left: 20px;
 	}
 }
 
@@ -102,7 +74,15 @@
 
 @media only screen and (max-width: 1199px)
 {
-	
+	.milestone
+	{
+		width: calc(100% / 3);
+	}
+	.footer_container
+	{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 /************
@@ -120,10 +100,7 @@
 
 @media only screen and (max-width: 1024px)
 {
-	.main_nav_item
-	{
-		margin-right: 33px;
-	}
+	
 }
 
 /************
@@ -132,49 +109,41 @@
 
 @media only screen and (max-width: 991px)
 {
-	.main_nav_container
+	.container_custom .container
+	{
+		max-width: 720px;
+	}
+	.main_nav
 	{
 		display: none;
 	}
-	.logo_container
-	{
-		padding-left: 30px;
-	}
-	.hamburger_container
+	.hamburger
 	{
 		display: block;
 	}
-	.elements_accordions
+	.search_input
 	{
-		margin-top: 80px;
+		width: calc(100% - 170px);
 	}
-	.milestone_col
+	.search_button
 	{
-		margin-bottom: 80px;
+		width: 152px;
 	}
-	.milestone_col:last-child
+	.tabs
 	{
-		margin-bottom: 0px;
+		margin-top: 60px;
 	}
-	.icon_box
+	.tab:not(:last-child)
 	{
-		margin-bottom: 60px;
+		margin-right: 7px;
 	}
-	.icon_box:last-child
+	.milestone
 	{
-		margin-bottom: 0px;
+		width: 50%;
 	}
-	.newsletter_form_container
+	.footer_nav ul li:not(:last-of-type)
 	{
-		width: 90%;
-	}
-	.footer_col
-	{
-		margin-bottom: 30px;
-	}
-	.footer_col:last-child
-	{
-		margin-bottom: 0px;
+		margin-right: 31px;
 	}
 }
 
@@ -211,19 +180,32 @@
 
 @media only screen and (max-width: 767px)
 {
-	.menu_container
+	.add_listing
 	{
-		right: -100vw;
-		width: 100vw;
-		height: 100vh;
+		width: 122px;
+		height: 38px;
 	}
-	.newsletter_email
+	.add_listing
 	{
-		width: 100%;
+		display: none;
 	}
-	.newsletter_submit_btn
+	.log_reg ul li a
 	{
-		margin-top: 15px;
+		font-size: 14px;
+	}
+	.menu_link
+	{
+		display: block;
+	}
+	.footer_container
+	{
+		height: auto;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.copyright
+	{
+		margin-top: 20px;
 	}
 }
 
@@ -233,149 +215,64 @@
 
 @media only screen and (max-width: 575px)
 {
-	h1{font-size: 24px;}
-	p{font-size:13px;}
-	.header
+	.container_custom .container
 	{
-		height: 74px;
+		max-width: 100%;
 	}
-	.logo_container
+	.button
 	{
-		padding-left: 15px;
+		width: 156px;
+		height: 47px;
 	}
-	.logo img
-	{
-		width: 30px;
-	}
-	.logo span
-	{
-		font-size: 16px;
-	}
-	.hamburger_container
-	{
-		right: 5px;
-	}
-	.menu
-	{
-		top: 70px;
-	}
-	.menu_item
-	{
-		margin-bottom: 0px;
-	}
-	.menu_item a
-	{
-		font-size: 24px;
-	}
-	.menu_copyright
-	{
-		display: none;
-	}
-	.menu_social_container
-	{
-		margin-top: 50px;
-	}
-	.menu_close_container
-	{
-		right: 30px;
-		top: 34px;
-	}
-	.home
-	{
-		height: 372px;
-	}
-	.home_content
-	{
-		padding-top: 17px;
-	    padding-bottom: 11px;
-	    padding-left: 22px;
-	    padding-right: 24px;
-	}
-	.home_content h1
-	{
-		font-size: 30px;
-	}
-	.pbar_container
-	{
-		padding-left: 25px;
-		padding-right: 25px;
-	}
-	.loader_col
-	{
-		margin-bottom: 60px;
-	}
-	.loader_col:last-child
-	{
-		margin-bottom: 0px;
-	}
-	.loader
-	{
-		width: 120px;
-		height: 120px;
-	}
-	.pb_item h4
-	{
-		margin-bottom: 7px;
-	}
-	.progressbar-text
-	{
-		top: -27px !important;
-		font-size: 14px !important;
-	}
-	.accordion
-	{
-		font-size: 13px;
-		padding-left: 20px;
-		padding-right: 50px;
-	}
-	.loader_text
+	.button a
 	{
 		font-size: 14px;
-		margin-top: 15px;
+		line-height: 47px;
 	}
-	.loader_sub
+	.header_content
 	{
-		font-size: 13px;
-		margin-top: 2px;
+		height: 90px;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
-	.milestone_col
-	{
-		margin-bottom: 60px;
-	}
-	.milestone_icon
-	{
-		width: 50px;
-		height: 50px;
-	}
-	.milestone_counter
-	{
-		font-size: 30px;
-		margin-top: 25px;
-	}
-	.milestone_text
-	{
-		font-size: 16px;
-	}
-	.icon_box p
-	{
-		font-size: 13px;
-	}
-	.icon_box h3
+	.logo a
 	{
 		font-size: 20px;
 	}
-	.footer_bar
+	.search_button
 	{
-		padding-top: 49px;
-		padding-bottom: 52px;
+		margin-top: 15px;
 	}
-	.footer_social
+	.search_input
 	{
-		margin-top: 20px;
+		padding-left: 0;
+		width: 100%;
+		text-align: center;
 	}
-	.footer_copyright span
+	.home
 	{
-		font-size: 13px;
+		height: 350px;
+	}
+	.home_content
+	{
+		padding-bottom: 85px;
+	}
+	.home_title
+	{
+		font-size: 36px;
+	}
+	.tab
+	{
+		padding-left: 24px;
+		padding-right: 20px;
+	}
+	.milestone
+	{
+		width: 100%;
+	}
+	.milestone_counter
+	{
+		font-size: 56px;
 	}
 }
 
@@ -403,11 +300,7 @@
 
 @media only screen and (max-width: 479px)
 {
-	.header
-	{
-		height: 60px;
-		top: 15px;
-	}
+	
 }
 
 /************

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import FooterX from "../MainPage/FooterX";
 
 const localStorageObjectName = "login_system_storage";
+import { Redirect } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
@@ -171,6 +172,7 @@ class Home extends Component {
             signInPassword: "",
             token: json.token
           });
+          <Redirect to="/TM" />;
         } else {
           this.setState({
             signInError: json.mes,
@@ -275,7 +277,7 @@ class Home extends Component {
 
     /**
      * This should probably be broken into multiple components and conglomerated in some
-     * container, but what the hell
+     * container,
      */
     if (!token) {
       return (
@@ -337,6 +339,12 @@ class Home extends Component {
             />
             <br />
             <button onClick={this.onSignUp}>Sign Up</button>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <a href="">Login With FB</a>
           </div>
         </>
       );
