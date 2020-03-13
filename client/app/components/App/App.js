@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "../LS/Login";
 import Home from "../Home/Home";
 import TM from "../Teachers/TM";
-import Facebook from "../Facebook/Facebook";
+
 import UpperSection from "../HomePage/UpperSection";
 import footer from "../HomePage/footer";
 import BecomeTeacher from "../HomePage/BecomeTeacher";
@@ -18,7 +18,7 @@ const App = ({ children }) => (
     <Route exact path="/" component={footer}></Route>
     <Route exact path="/Login" component={Login}></Route>
     <Route exact path="/Home" component={Home}></Route>
-    <Route exact path="/Facebook" component={Facebook}></Route>
+  
     <Route exact path="/TM" component={TM}></Route>
   </>
 );
